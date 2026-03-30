@@ -1,0 +1,58 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+words = [25, 50, 100, 200, 400]
+
+no_persona = [
+    [6, 4, 4],
+    [4, 3, 5],
+    [8, 9, 6],
+    [11, 12, 11],
+    [18, 14, 14]
+]
+
+short_persona = [
+    [5, 5, 5], 
+    [8, 8, 10], 
+    [13, 8, 12], 
+    [15, 15, 15], 
+    [19, 17, 21]
+]
+
+long_persona = [
+    [...], 
+    [...], 
+    [...], 
+    [...], 
+    [...]
+]
+
+anti_rep = [
+    [...], 
+    [...], 
+    [...], 
+    [...], 
+    [...]
+]
+
+def get_stats(data):
+    means = [np.mean(d) for d in data]
+    stds = [np.std(d) for d in data]
+    return means, stds
+
+plt.figure()
+
+for data, label, marker in [
+    (no_persona, "No Persona", 'o'),
+    (short_persona, "Short Persona", 's'),
+    (long_persona, "Long Persona", '^'),
+    (anti_rep, "Persona + Anti-Rep", 'D')
+]:
+    means, stds = get_stats(data)
+    plt.errorbar(words, means, yerr=stds, marker=marker, capsize=5, label=label)
+
+plt.xlabel("Max Words")
+plt.ylabel("Synonymous Repetition rate")
+plt.title("Synonymous Repetition Occurrence vs Response Length")
+plt.legend()
+plt.show()
