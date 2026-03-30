@@ -12,15 +12,27 @@ no_persona = [
 ]
 
 short_persona = [
-    [5, ], [...], [...], [...], [...]
+    [5, 5, 5], 
+    [8, 8, 10], 
+    [13, 8, 12], 
+    [15, 15, 15], 
+    [19, 17, 21]
 ]
 
 long_persona = [
-    [...], [...], [...], [...], [...]
+    [5, 7, 7], 
+    [10, 9, 10], 
+    [12, 9, 11], 
+    [10, 14, 17], 
+    [23, 18, 21]
 ]
 
 anti_rep = [
-    [...], [...], [...], [...], [...]
+    [...], 
+    [...], 
+    [...], 
+    [...], 
+    [...]
 ]
 
 def get_stats(data):
@@ -40,7 +52,7 @@ for data, label, marker in [
     plt.errorbar(words, means, yerr=stds, marker=marker, capsize=5, label=label)
 
 plt.xlabel("Max Words")
-plt.ylabel("Synonymous Repetition Occurrences")
+plt.ylabel("Synonymous Repetition rate")
 plt.title("Synonymous Repetition Occurrence vs Response Length")
 plt.legend()
 plt.show()
