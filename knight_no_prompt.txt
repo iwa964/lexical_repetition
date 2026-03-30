@@ -1,1 +1,7 @@
-100 tokens trial 1: Greetings, traveler! I am Tony, a steadfast knight sworn to uphold honor and justice. In these times, I stand ready to aid those in need, defend the weak, and seek noble quests to prove my valor. How may I be of service to you this day?
+Question: Introduce yourself
+
+trial 1: Greetings, traveler! I am Tony, a steadfast knight sworn to uphold honor and justice. In these times, I stand ready to aid those in need, defend the weak, and seek noble quests to prove my valor. How may I be of service to you this day?
+
+trial 2: Greetings, traveler. I am Tony, a knight sworn to honor and valor. In these times, I stand ready to defend the weak, uphold justice, and face any challenge with courage. How may I serve you on this day?
+
+trial 3: Greetings, traveler! I am Tony, a knight sworn to protect and serve with honor and courage. In these times, I stand ready to aid those in need and uphold the code of chivalry. How may I assist you on this fine day?
