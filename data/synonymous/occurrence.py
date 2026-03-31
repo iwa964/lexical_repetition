@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-words = [25, 50, 100, 200, 400]
+words = np.array([25, 50, 100, 200, 400])
 
 no_persona = [
     [6, 4, 4],
@@ -32,13 +32,22 @@ anti_rep = [
     [7, 10, 10], 
     [10, 14, 13], 
     [17, 18, 12], 
-    [24, 22 ]
+    [24, 22, 25]
 ]
 
 def get_stats(data):
     means = [np.mean(d) for d in data]
     stds = [np.std(d) for d in data]
-    return means, stds
+    return np.array(means), np.array(stds)
+
+def fit_power_law(x, y):
+    log_x = np.log(x)
+    log_y = np.log(y)
+    
+    alpha, log_c = np.polyfit(log_x, log_y, 1)
+    c = np.exp(log_c)
+    
+    return alpha, c
 
 plt.figure()
 
@@ -49,10 +58,20 @@ for data, label, marker in [
     (anti_rep, "Persona + Anti-Rep", 'D')
 ]:
     means, stds = get_stats(data)
+    
+    # original plot
     plt.errorbar(words, means, yerr=stds, marker=marker, capsize=5, label=label)
+    
+    # power-law fit (on occurrences)
+    alpha, c = fit_power_law(words, means)
+    x_fit = np.linspace(min(words), max(words), 100)
+    y_fit = c * (x_fit ** alpha)
+    
+    plt.plot(x_fit, y_fit, linestyle='--', alpha=0.7,
+             label=f"{label} fit (α={alpha:.2f})")
 
-plt.xlabel("Max Words")
-plt.ylabel("Synonymous Repetition rate")
+plt.xlabel("Approx. response word count")
+plt.ylabel("Synonymous Repetition occurrence")
 plt.title("Synonymous Repetition Occurrence vs Response Length")
 plt.legend()
 plt.show()
