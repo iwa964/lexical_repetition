@@ -59,7 +59,6 @@ python data/synonymous/rate.py
 python data/overlap/overlap-count
 python data/overlap/overlap-rate
 ```
-
 Each script opens a `matplotlib` visualization window.
 
 ## Data notes
@@ -67,12 +66,3 @@ Each script opens a `matplotlib` visualization window.
 - Trial data appears to be manually curated in the scripts and text files.
 - Most analyses are based on three trials per length bucket.
 - Length buckets currently used: **25, 50, 100, 200, 400** words.
-
-## Scope and status
-
-This repo appears to be an exploratory analysis workspace ("work for prism") rather than a packaged library. Suggested next improvements if you continue the project:
-
-1. Add a reproducible data-loading pipeline (CSV/JSON instead of in-script arrays).
-2. Standardize script naming/extensions (`.py` for all executable scripts).
-3. Add saved figure output paths and experiment metadata.
-4. Include formal metric definitions for “synonymous repetition” and “overlap”.
